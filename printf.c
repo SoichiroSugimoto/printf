@@ -6,34 +6,17 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 05:19:05 by sosugimo          #+#    #+#             */
-/*   Updated: 2020/12/11 02:50:12 by sosugimo         ###   ########.fr       */
+/*   Updated: 2020/12/18 22:18:03 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
 #include "Libft/Libft.h"
-#include <stdio.h>
-#include <string.h>
-
-char *ft_putchar(char *st)
-{
-	int i;
-
-	i = 0;
-	while (st[i])
-	{
-		write(1, &st[i], 1);
-		i++;
-	}
-	return (0);
-}
-
-
+#include "printf.h"
 
 int ft_printf(const char *st , ...)
 {
 	int i;
-	char *sub;
+	f_list f;
 	va_list ap;
 
 	i = 0;
@@ -42,24 +25,36 @@ int ft_printf(const char *st , ...)
 	{
 		if (st[i] == '%')
 		{
-			i++;
-			i++;
-			sub = va_arg(ap, char*);
-			ft_putchar(sub);
+			f = get_struct(&st[i], i);
+			if (f.conversion == 'c')
+				f.char_value = va_arg(ap, int);
+			if (f.conversion == 's')
+				f.str_value = va_arg(ap, char*);
+			else
+				f.int_value = va_arg(ap, int);
+			if (f.f_flag == 1)
+				f.field = va_arg(ap, int);
+			ft_putstr_fd(arrange_value(f), 1);
 		}
 		write(1, &st[i], 1);
 		i++;
 	}
 	va_end(ap);
-	return (0);
+	return (ft_strlen(st));
 }
 
+
+#include <stdio.h>
 int main(void)
 {
-	char *st = "apple";
-	printf("%lu\n",ft_strlen(st));
-	ft_printf("this is %s I made\n", "string");
+	// int i;
+	// i = ft_printf("this is %s I made, but it is %s yet.\n", "string", "uncopleted");
+	// printf("%d", i);
+	// ft_printf("this is %s I made, but it is %s yet.\n", "string", "uncopleted");
+	printf("%s\n", "this is string");
 }
+
+
 
 //int printf(const char * restrict format, ...);
 
@@ -67,12 +62,3 @@ int main(void)
 // type va_arg(va_list ap, type);
 // void va_copy(va_list dest, va_list src);
 // void va_end(va_list ap);
-
-
-// malloc
-// free
-// write
-// va_start
-// va_arg
-// va_copy
-// va_end
