@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:30:21 by sosugimo          #+#    #+#             */
-/*   Updated: 2020/12/18 22:02:06 by sosugimo         ###   ########.fr       */
+/*   Updated: 2020/12/22 19:18:01 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Libft/Libft.h"
 
 //文字列から数値を取得する (+桁数分インクリメントする)
-int get_number(char *st)
+int get_number(const char *st)
 {
 	int i;
 	int num;

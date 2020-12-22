@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 05:19:05 by sosugimo          #+#    #+#             */
-/*   Updated: 2020/12/18 22:18:03 by sosugimo         ###   ########.fr       */
+/*   Updated: 2020/12/22 19:57:21 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int ft_printf(const char *st , ...)
 	{
 		if (st[i] == '%')
 		{
-			f = get_struct(&st[i], i);
+			f = get_struct(st + i, i);
 			if (f.conversion == 'c')
 				f.char_value = va_arg(ap, int);
 			if (f.conversion == 's')
@@ -40,18 +40,18 @@ int ft_printf(const char *st , ...)
 		i++;
 	}
 	va_end(ap);
-	return (ft_strlen(st));
+	return (i);
 }
 
 
 #include <stdio.h>
 int main(void)
 {
-	// int i;
-	// i = ft_printf("this is %s I made, but it is %s yet.\n", "string", "uncopleted");
-	// printf("%d", i);
-	// ft_printf("this is %s I made, but it is %s yet.\n", "string", "uncopleted");
-	printf("%s\n", "this is string");
+	ft_printf("%s\n", "I like reading a book");
+
+	f_list f;
+	printf("flag: %d, f_flag: %d, field: %d, precise: %d, conversion: %c, value: %s\n",
+	 		f.flag, f.field, f.field, f.precise, f.conversion, f.str_value);
 }
 
 
@@ -62,3 +62,22 @@ int main(void)
 // type va_arg(va_list ap, type);
 // void va_copy(va_list dest, va_list src);
 // void va_end(va_list ap);
+
+
+
+
+
+/*
+va_argという関数は値そのものではなく、アドレスを取り扱う関数である。
+アドレスは8バイトである。
+8バイトの型はlong long;
+
+
+long long a = (long long)va_args(ap,char *);
+#define va_arg(ap,t)  (*(*(t **)&ap)++)
+printf (const char *s,...)
+アドレスの値を返すのとポインター を進める
+*s++
+*s++ = *p++;
+long long a = (long long)va_args(ap,char *);
+*/

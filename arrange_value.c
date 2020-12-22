@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 17:15:00 by sosugimo          #+#    #+#             */
-/*   Updated: 2020/12/19 18:20:53 by sosugimo         ###   ########.fr       */
+/*   Updated: 2020/12/22 18:13:01 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,18 +115,16 @@ char *arrange_value(f_list f)
 	if (!(p = (char *)malloc(sizeof(char) * (size + 1))))
 		return (NULL);
 	length = get_length(f);
-	if (!(q = (char *)malloc(sizeof(char) * length)))
-		return (NULL);
 	if (f.conversion == 's')
 	{
 		if (f.flag != 1)
 		{
-			while (i != length)
+			while (i <= length)
 			{
 				p[i] = f.str_value[i];
 				i++;
 			}
-			while (i != size)
+			while (i <= size)
 			{
 				p[i] = ' ';
 				i++;
@@ -134,12 +132,12 @@ char *arrange_value(f_list f)
 		}
 		if (f.flag == 1)
 		{
-			while (i != (size - length))
+			while (i <= (size - length))
 			{
 				p[i] = ' ';
 				i++;
 			}
-			while (i != size)
+			while (i <= size)
 			{
 				p[i] = f.str_value[i];
 				i++;
@@ -151,7 +149,8 @@ char *arrange_value(f_list f)
 		if (f.flag != 1)
 		{
 			p[i] = f.char_value;
-			while (i != size)
+			i++;
+			while (i <= size)
 			{
 				p[i] = ' ';
 				i++;
@@ -159,7 +158,7 @@ char *arrange_value(f_list f)
 		}
 		if (f.flag == 1)
 		{
-			while (i != size - 1)
+			while (i <= size - 1)
 			{
 				p[i] = ' ';
 				i++;
@@ -221,9 +220,11 @@ char *arrange_value(f_list f)
 }
 
 
+
 /*
 
 [[[value]length]size]
+
 length = get_length;
 size = get_realm;
 
