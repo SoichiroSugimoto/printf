@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 14:09:30 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/01/04 19:19:03 by sosugimo         ###   ########.fr       */
+/*   Created: 2020/12/27 14:35:30 by sosugimo          #+#    #+#             */
+/*   Updated: 2020/12/31 11:01:18 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "Libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memcpy2(void *dst, const void *src, int n)
 {
-	int		i;
-	char	*st;
-	int		len;
+	int				i;
+	unsigned char	*st1;
+	unsigned char	*st2;
 
 	i = 0;
-	len = ft_strlen(s);
-	st = (char *)s;
-	while (i <= len)
+	st1 = (unsigned char *)dst;
+	st2 = (unsigned char *)src;
+	while (i <= n)
 	{
-		if (st[i] == c)
-			return (&st[i]);
+		st1[i] = st2[i];
 		i++;
 	}
-	return (0);
+	return (dst);
 }

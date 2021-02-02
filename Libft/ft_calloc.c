@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 05:20:59 by sosugimo          #+#    #+#             */
-/*   Updated: 2020/12/22 19:18:00 by sosugimo         ###   ########.fr       */
+/*   Created: 2020/12/29 18:44:14 by sosugimo          #+#    #+#             */
+/*   Updated: 2020/12/29 18:44:29 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "Libft.h"
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdarg.h>
-
-typedef struct flag_list
+void	*ft_calloc(size_t count, size_t size)
 {
-	int flag;
-	int f_flag;
-	int field;
-	int precise;
-	char conversion;
-	int	int_value;
-	char *str_value;
-	char char_value;
-} f_list;
+	char	*p;
 
-int		ft_printf(const char *st, ...);
-char	*into_hex(int n);
-f_list	get_struct(const char *st, int i);
-char	*arrange_value(f_list f);
-
-#endif
+	p = (char*)malloc(size * count);
+	if (p == NULL)
+		return (0);
+	ft_bzero(p, (count * size));
+	return ((void *)p);
+}

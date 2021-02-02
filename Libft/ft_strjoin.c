@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 14:09:30 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/01/04 19:19:03 by sosugimo         ###   ########.fr       */
+/*   Created: 2021/01/04 13:06:43 by sosugimo          #+#    #+#             */
+/*   Updated: 2021/01/04 13:07:14 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "Libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
+	char	*p;
 	int		i;
-	char	*st;
-	int		len;
+	int		j;
 
+	if (!s1 || !s2)
+		return (0);
+	if (!(p = (char *)malloc(sizeof(char) *
+		(ft_strlen(s1) + ft_strlen(s2) + 1))))
+		return (NULL);
 	i = 0;
-	len = ft_strlen(s);
-	st = (char *)s;
-	while (i <= len)
+	j = 0;
+	while (s1[i] != '\0')
 	{
-		if (st[i] == c)
-			return (&st[i]);
+		p[i] = s1[i];
 		i++;
 	}
-	return (0);
+	while (s2[j] != '\0')
+	{
+		p[i + j] = s2[j];
+		j++;
+	}
+	p[i + j] = '\0';
+	return (p);
 }

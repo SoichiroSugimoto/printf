@@ -5,34 +5,32 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/12/23 15:57:14 by sosugimo          #+#    #+#              #
-#    Updated: 2021/01/24 20:35:57 by sosugimo         ###   ########.fr        #
+#    Created: 2021/01/25 07:37:00 by sosugimo          #+#    #+#              #
+#    Updated: 2021/01/25 07:39:19 by sosugimo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= libftprintf.a
-SRCS	= ${shell find ./srcs/*.c}
-OBJS	= $(SRCS:.c=.o)
-HEADER	= ./srcs/*.h
-CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+SRCS	= ${shell find ./*.c}
 
-.c.o :
-	$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $(<:.c=.o)
+OBJS			= $(SRCS:.c=.o)
 
-all : $(NAME)
+CC				= gcc
+RM				= rm -f
+CFLAGS			= -Wall -Wextra -Werror -I.
 
-$(NAME) : $(OBJS)
-	make -C Libft
-	cp Libft/Libft.a libftprintf.a
-	ar rcs $(NAME) $(OBJS)
+NAME			= libft.a
 
-clean :
-	rm -f $(OBJS)
+all:			$(NAME)
 
-fclean : clean
-	rm -f $(NAME)
+$(NAME):		$(OBJS)
+				ar rcs $(NAME) $(OBJS)
 
-re : fclean all
+clean:
+				$(RM) $(OBJS)
 
-.PHONY : all clean fclean re
+fclean:			clean
+				$(RM) $(NAME)
+
+re:				fclean all
+
+.PHONY:			all clean fclean re

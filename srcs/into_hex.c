@@ -6,15 +6,14 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 19:31:03 by sosugimo          #+#    #+#             */
-/*   Updated: 2020/12/18 22:01:42 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/01/25 07:45:49 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-#include "Libft/Libft.h"
-#include <stdio.h>
+#include "../Libft/Libft.h"
 
-char refer_tab(int i)
+char	refer_tab(long long i)
 {
 	if (i == 10)
 		return ('a');
@@ -32,25 +31,48 @@ char refer_tab(int i)
 		return ('0' + i);
 }
 
+char	refer_tabx(long long i)
+{
+	if (i == 10)
+		return ('A');
+	if (i == 11)
+		return ('B');
+	if (i == 12)
+		return ('C');
+	if (i == 13)
+		return ('D');
+	if (i == 14)
+		return ('E');
+	if (i == 15)
+		return ('F');
+	else
+		return ('0' + i);
+}
 
-static char		*itoc(int n, char *p, int i)
+char		*itocx(long long n, char *p, int i, int prm)
 {
 	if (n < 16)
 	{
-		p[0] = refer_tab(n);
+		if (prm == 0)
+			p[0] = refer_tab(n);
+		else
+			p[0] = refer_tabx(n);
 		i--;
 	}
 	else
 	{
-		p[i] = refer_tab(n % 16);
+		if (prm == 0)
+			p[i] = refer_tab(n % 16);
+		else
+			p[i] = refer_tabx(n % 16);
 		n = n / 16;
 		i--;
-		itoc(n, p, i);
+		itocx(n, p, i, prm);
 	}
 	return (p);
 }
 
-static	int		get_digit(int n)
+int		get_digitx(long long n)
 {
 	int len;
 
@@ -65,37 +87,18 @@ static	int		get_digit(int n)
 	return (len);
 }
 
-char *into_hex(int n)
+char	*into_hex(long long n, int prm)
 {
 	char		*p;
 	int			len;
 	int			i;
 
-	len = get_digit(n);
+	len = get_digitx(n);
 	i = len;
 	if (!(p = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	p[i] = '\0';
 	i--;
-	itoc(n, p, i);
+	itocx(n, p, i, prm);
 	return (p);
 }
-
-// int main(void)
-// {
-// 	int i = 13453;
-// 	printf("%s\n", into_hex(i));
-// 	printf("%x\n", i);
-// }
-
-// int main(void)
-// {
-// 	int i = 12345;
-// 	int n;
-// 	int m;
-
-// 	n = i /16;
-// 	m = i %16;
-
-// 	printf("商：%d　余り：%d\n", n, m);
-// }

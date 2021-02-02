@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 00:58:14 by sosugimo          #+#    #+#             */
-/*   Updated: 2020/12/17 16:58:25 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/01/04 19:02:58 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,3 @@ char			*ft_itoa(int n)
 	itoa2(l, p, i);
 	return (p);
 }
-
-// #include <stdio.h>
-// int main(void)
-// {
-// 	int i = 12345;
-// 	printf("%s\n", ft_itoa(i));
-// }
