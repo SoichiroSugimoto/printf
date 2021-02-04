@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 05:19:05 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/02 06:41:12 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/02 16:37:27 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		skip_str(const char *st, f_list f)
 	// 	while (st[i] != '%')
 	// 		i++;
 	// }
+	//printf("%d\n", i + 1);
 	return (i + 1);
 }
 
@@ -56,7 +57,7 @@ int				ft_printf(const char *st, ...)
 			st += skip_str(st, f);
 		}
 		write(1, st, 1);
-		st++;
+		st += (*st ? 1 : 0);
 	}
 	va_end(ap);
 	return (ft_strlen(st));

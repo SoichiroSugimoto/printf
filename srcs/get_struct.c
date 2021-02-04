@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:30:21 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/02 08:19:11 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/03 18:29:14 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,61 +31,24 @@ static int				get_number(const char *st)
 	return (num);
 }
 
-static int		get_digit(int n)
-{
-	int len;
-
-	len = 1;
-	while (n >= 10)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
-
-// static f_list			ft_init_flag(f_list f)
+// static int		get_digit(int n)
 // {
-// 	f.flag = -1;
-// 	f.f_flag = -1;
-// 	f.field = -1;
-// 	f.precise = -1;
-// 	f.p_flag = -1;
-// 	f.conversion = 'c';
-// 	f.int_value = -1;
-// 	f.str_value = NULL;
-// 	f.char_value = 'c';
-// 	f.adr_value = -1;
-// 	return (f);
-// }
+// 	int len;
 
-static f_list			ft_get_flag(const char *st, f_list f)
-{
-	if (*st == '0')
-	{
-		f.flag = 0;
-		st++;
-	}
-	if (*st == '-')
-	{
-		f.flag = 1;
-		st++;
-	}
-	if (*st == '0')
-		st++;
-	if (*st == '*')
-	{
-		f.f_flag = 1;
-		st++;
-	}
-	return (f);
-}
+// 	len = 1;
+// 	while (n >= 10)
+// 	{
+// 		n /= 10;
+// 		len++;
+// 	}
+// 	return (len);
+// }
 
 f_list			get_struct(const char *st)
 {
-	f_list f = {-1, -1, -1, -1, -1, 'c', -1, "", 'c', -1};
+	f_list f;
+	f = ft_init_flag();
 
-	printf("[%s]\n", f.str_value);
 	st++;
 	f = ft_get_flag(st, f);
 	while (*st == '0' || *st == '-' || *st == '*')
@@ -93,7 +56,7 @@ f_list			get_struct(const char *st)
 	if (*st && *st >= '0' && *st <= '9')
 	{
 		f.field = get_number(&*st);
-		st += get_digit(f.field);
+		st += sub_get_digit(st);
 	}
 	if (*st == '.')
 	{
@@ -102,9 +65,11 @@ f_list			get_struct(const char *st)
 		if (*st && *st >= '0' && *st <= '9')
 		{
 			f.precise = get_number(st);
-			st += get_digit(f.precise);
+			st += sub_get_digit(st);
 		}
 	}
 	f.conversion = *st;
+	// printf("f.precise ------> <%d>\n", f.precise);
+	// printf("f.conversion ------> <%c>\n", f.conversion);
 	return (f);
 }

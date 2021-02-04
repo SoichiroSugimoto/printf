@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 05:20:59 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/02 02:06:02 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/03 18:26:48 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ void				arrange_numx_value(f_list f);
 char				*into_hex(long long n, int prm);
 void				arrange_nump_value(f_list f);
 f_list				get_struct(const char *st);
+f_list				ft_get_flag(const char *st, f_list f);
+f_list				ft_init_flag(void);
+int					sub_get_digit(const char *st);
 
 // int				skip_str(const char *st, f_list f);
 // char				*into_hex(long long n, int prm);
