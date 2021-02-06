@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 05:19:05 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/06 04:08:24 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/06 18:43:32 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,14 @@ int 			get_final_output(f_list f)
 	else if (f.conversion == 'd' || f.conversion == 'i' || f.conversion == 'u')
 	{
 		cnt = ft_strlen(ft_itoa(f.int_value));
-		cnt = (cnt, f.precise, 1);
-		cnt = (cnt, f.field, 1);
+		cnt = compare_num(cnt, f.precise, 1);	///////////大きい方
+		cnt = compare_num(cnt, f.field, 1);	///////////
 	}
 	else
 	{
 		cnt = ft_strlen(into_hex(f.int_value, 1));
-		cnt = (cnt, f.precise, 1);
-		cnt = (cnt, f.field, 1);
+		cnt = compare_num(cnt, f.precise, 1);	//////////
+		cnt = compare_num(cnt, f.field, 1);	//////////
 	}
 	return (cnt);
 }
@@ -86,6 +86,8 @@ int				ft_printf(const char *st, ...)
 
 	va_start(ap, st);
 	i = 0;
+	// if (!string)
+	// 	return (FAILED);
 	while (*st)
 	{
 		while (*st && *st == '%')
