@@ -6,13 +6,13 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 00:58:14 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/01/04 19:02:58 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/09 08:21:51 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Libft.h"
 
-static char		*itoa2(long int n, char *p, int i)
+static char		*itoa2(long long n, char *p, int i)
 {
 	if (n < 10)
 	{
@@ -29,7 +29,7 @@ static char		*itoa2(long int n, char *p, int i)
 	return (p);
 }
 
-static	int		dgt_mes(long int n)
+static	int		dgt_mes(long long n)
 {
 	int len;
 
@@ -44,25 +44,23 @@ static	int		dgt_mes(long int n)
 	return (len);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long long n)
 {
 	char		*p;
 	int			len;
 	int			i;
-	long int	l;
 
 	len = dgt_mes(n);
-	l = (long int)n;
 	i = len;
 	if (!(p = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	if (l < 0)
+	if (n < 0)
 	{
 		p[0] = '-';
-		l *= -1;
+		n *= -1;
 	}
 	p[i] = '\0';
 	i--;
-	itoa2(l, p, i);
+	itoa2(n, p, i);
 	return (p);
 }

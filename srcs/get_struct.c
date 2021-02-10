@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:30:21 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/03 18:29:14 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/10 19:49:01 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,13 @@ f_list			get_struct(const char *st)
 	{
 		f.precise = 0;
 		st++;
+		if(*st == '*')
+		{
+			f.p_flag = 1;
+			st++;
+		}
+		if (f.flag == 0 && f.p_flag != 1)
+			f.flag = -1;
 		if (*st && *st >= '0' && *st <= '9')
 		{
 			f.precise = get_number(st);

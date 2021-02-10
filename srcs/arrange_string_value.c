@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 16:09:19 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/03 18:29:39 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/10 17:08:04 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int		get_digit(f_list f)
 	int i;
 
 	i = ft_strlen(f.str_value);
-	if ((f.precise != -1) && (i > f.precise))
+	if ((f.precise >= 0) && (i > f.precise))
 		i = f.precise;
 	return (i);
 }
@@ -40,18 +40,21 @@ void	arrange_string_value(f_list f)
 	i = 0;
 	j = 0;
 	blank = ' ';
+	//printf("%d\n", f.field);
+	if (f.flag == 0)
+		blank = '0';
 	if (f.str_value == NULL)
 		f.str_value = "(null)";
 	if (f.flag == 1)
 	{
 		while (j < get_digit(f))
 		{
-			write(1, &f.str_value[j], 1);
+			count += write(1, &f.str_value[j], 1);
 			j++;
 		}
 		while (i < (f.field - get_digit(f)))
 		{
-			write(1, &blank, 1);
+			count += write(1, &blank, 1);
 			i++;
 		}
 	}
@@ -59,12 +62,12 @@ void	arrange_string_value(f_list f)
 	{
 		while (i < (f.field - get_digit(f)))
 		{
-			write(1, &blank, 1);
+			count += write(1, &blank, 1);
 			i++;
 		}
 		while (j < get_digit(f))
 		{
-			write(1, &f.str_value[j], 1);
+			count += write(1, &f.str_value[j], 1);
 			j++;
 		}
 	}

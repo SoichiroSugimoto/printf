@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 17:43:11 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/03 21:31:01 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/10 12:13:30 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ f_list			ft_get_flag(const char *st, f_list f)
 		st++;
 	if (*st == '*')
 	{
+		///printf("%s\n", "abcdefg");
 		f.f_flag = 1;
 		st++;
 	}

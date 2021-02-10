@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 09:21:32 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/01 18:34:47 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/08 05:44:43 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	put_set(f_list f)
 		i = 1;
 		while(i <= f.field - 1)
 		{
-			write(1, &set, 1);
+			count += write(1, &set, 1);
 			i++;
 		}
 	}
@@ -35,7 +35,7 @@ static void	put_set(f_list f)
 			set = '0';
 		while(i <= f.field - 2)
 		{
-			write(1, &set, 1);
+			count += write(1, &set, 1);
 			i++;
 		}
 	}
@@ -52,13 +52,13 @@ void	arrange_sign_value(f_list f)
 	set = ' ';
 	if (f.flag == 1)
 	{
-		write(1, &c, 1);
+		count += write(1, &c, 1);
 		i++;
 		put_set(f);
 	}
 	else
 	{
 		put_set(f);
-		write(1, &c, 1);
+		count += write(1, &c, 1);
 	}
 }

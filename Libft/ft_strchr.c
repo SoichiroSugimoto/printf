@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 14:09:30 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/01/04 19:19:03 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/08 06:18:30 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strchr(const char *s, int c)
 	i = 0;
 	len = ft_strlen(s);
 	st = (char *)s;
-	while (i <= len)
+	while (i < len)
 	{
 		if (st[i] == c)
 			return (&st[i]);

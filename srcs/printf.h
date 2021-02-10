@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 05:20:59 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/03 18:26:48 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/09 08:18:50 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdarg.h>
 # include <stdio.h>
 
+int count;
+
 typedef struct	flag_list
 {
 	int			flag;
@@ -26,7 +28,7 @@ typedef struct	flag_list
 	int			precise;
 	int			p_flag;
 	char		conversion;
-	int			int_value;
+	long long	int_value;
 	void		*str_value;
 	char		char_value;
 	uintptr_t	adr_value;

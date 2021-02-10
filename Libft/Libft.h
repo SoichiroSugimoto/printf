@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 15:03:55 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/01/04 19:19:29 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/09 08:22:21 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 void		ft_putstr_fd(char *s, int fd);
 size_t		ft_strlen(const char *s);
 char		*ft_strchr(const char *s, int c);
-char		*ft_itoa(int n);
+char		*ft_itoa(long long n);
 int			ft_atoi(const char *str);
 void		*ft_memcpy(void *dst, const void *src, size_t n);
 void		*ft_memcpy2(void *dst, const void *src, int n);
