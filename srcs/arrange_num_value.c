@@ -6,17 +6,17 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 16:56:05 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/10 19:17:37 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/13 01:50:16 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-#include "../Libft/Libft.h"
+#include "ft_printf.h"
+#include "../libft/libft.h"
 
-static int get_digit(f_list f)
+static	int		get_digit(t_list f)
 {
-	char *num;
-	int digit;
+	char	*num;
+	int		digit;
 
 	if (f.int_value < 0)
 		num = ft_itoa((-1) * f.int_value);
@@ -26,70 +26,55 @@ static int get_digit(f_list f)
 	return (digit);
 }
 
-static int get_width(f_list f)
+static	void	put_blank(t_list f)
 {
-	int i;
-	int digit;
-
-	digit = (int)ft_strlen(ft_itoa(f.int_value));
-	i = f.precise + (f.int_value < 0 ? 1 : 0);
-	if (f.precise < digit)
-		i = digit;
-	if (i == -1 || (f.precise == 0 && f.int_value == 0))
-		i = 0;
-	return (i);
-}
-
-//*が存在している。(f.p_flag == 1)&& preciseがマイナス値　--> preciseを無視
-
-static void put_blank(f_list f)
-{
-	int i;
-	char blank;
-	int num;
-	char sign = '-';
+	int		i;
+	char	blank;
+	int		num;
+	char	sign;
 
 	i = 0;
+	sign = '-';
 	blank = ' ';
 	if (f.flag == 0)
 		blank = '0';
 	num = f.field - get_width(f);
 	if ((f.int_value < 0) && f.flag == 0)
-		count += write(1, &sign, 1);
+		g_count += write(1, &sign, 1);
 	while (i < num)
 	{
-		count += write(1, &blank, 1);
+		g_count += write(1, &blank, 1);
 		i++;
 	}
 }
 
-static void put_zero(f_list f)
+static void		put_zero(t_list f)
 {
-	int i;
-	char zero;
-	int digit;
+	int		i;
+	char	zero;
+	int		digit;
 
 	i = 0;
 	zero = '0';
 	digit = get_digit(f);
 	if (f.flag != 0 && f.int_value < 0)
-		count += write(1, "-", 1);
+		g_count += write(1, "-", 1);
 	while (i < f.precise - digit)
 	{
-		count += write(1, &zero, 1);
+		g_count += write(1, &zero, 1);
 		i++;
 	}
 }
 
-static void put_digit(f_list f)
+static	void	put_digit(t_list f)
 {
-	char *num;
-	int digit;
-	int i;
+	char	*num;
+	int		digit;
+	int		i;
 
 	i = 0;
 	if (f.precise == 0 && f.int_value == 0)
-		return;
+		return ;
 	if (f.int_value < 0)
 		num = ft_itoa((-1) * f.int_value);
 	else
@@ -97,12 +82,12 @@ static void put_digit(f_list f)
 	digit = get_digit(f);
 	while (i < digit)
 	{
-		count += write(1, &num[i], 1);
+		g_count += write(1, &num[i], 1);
 		i++;
 	}
 }
 
-void	arrange_num_value(f_list f)
+void			arrange_num_value(t_list f)
 {
 	if (f.flag == 1)
 	{

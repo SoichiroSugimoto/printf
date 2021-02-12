@@ -6,12 +6,11 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 14:09:30 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/08 06:18:30 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/13 01:49:45 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include "Libft.h"
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

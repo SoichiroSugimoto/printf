@@ -6,9 +6,11 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 20:41:56 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/01/04 19:20:59 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/13 01:47:58 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {

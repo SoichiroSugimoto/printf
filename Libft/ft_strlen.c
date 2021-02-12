@@ -6,11 +6,11 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 15:03:16 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/01/04 19:18:38 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/13 01:48:23 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

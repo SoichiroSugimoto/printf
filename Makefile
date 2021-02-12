@@ -6,7 +6,7 @@
 #    By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/23 15:57:14 by sosugimo          #+#    #+#              #
-#    Updated: 2021/01/24 20:35:57 by sosugimo         ###   ########.fr        #
+#    Updated: 2021/02/13 02:05:10 by sosugimo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ CFLAGS	= -Wall -Wextra -Werror
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	make -C Libft
-	cp Libft/Libft.a libftprintf.a
+	make -C libft
+	cp libft/libft.a libftprintf.a
 	ar rcs $(NAME) $(OBJS)
 
 clean :

@@ -6,16 +6,14 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 18:42:59 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/01 16:59:45 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/13 01:50:51 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-#include "../Libft/Libft.h"
+#include "ft_printf.h"
+#include "../libft/libft.h"
 
-//conversion:　[c, s, p, d, i, u, x, X, %]
-
-void	central_arrange(f_list f)
+void	central_arrange(t_list f)
 {
 	if (f.conversion == 'c')
 		arrange_value(f);

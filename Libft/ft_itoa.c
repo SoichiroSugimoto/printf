@@ -6,11 +6,11 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 00:58:14 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/09 08:21:51 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/13 01:48:02 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libft.h"
+#include "libft.h"
 
 static char		*itoa2(long long n, char *p, int i)
 {

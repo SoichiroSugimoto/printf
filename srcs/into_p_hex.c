@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   into_hex.c                                         :+:      :+:    :+:   */
+/*   into_p_hex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/16 19:31:03 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/13 01:51:15 by sosugimo         ###   ########.fr       */
+/*   Created: 2021/02/11 02:05:14 by sosugimo          #+#    #+#             */
+/*   Updated: 2021/02/13 01:51:22 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "../libft/libft.h"
 
-char	refer_tab(long long i)
+static char		refer_tab(uintptr_t i)
 {
 	if (i == 10)
 		return ('a');
@@ -31,7 +31,7 @@ char	refer_tab(long long i)
 		return ('0' + i);
 }
 
-char	refer_tabx(long long i)
+static char		refer_tabx(uintptr_t i)
 {
 	if (i == 10)
 		return ('A');
@@ -49,7 +49,7 @@ char	refer_tabx(long long i)
 		return ('0' + i);
 }
 
-char	*itocx(long long n, char *p, int i, int prm)
+static char		*itocx(uintptr_t n, char *p, int i, int prm)
 {
 	if (n < 16)
 	{
@@ -72,7 +72,7 @@ char	*itocx(long long n, char *p, int i, int prm)
 	return (p);
 }
 
-int		get_digitx(long long n)
+static int		get_digitx(uintptr_t n)
 {
 	int len;
 
@@ -87,7 +87,7 @@ int		get_digitx(long long n)
 	return (len);
 }
 
-char	*into_hex(long long n, int prm)
+char			*into_p_hex(uintptr_t n, int prm)
 {
 	char		*p;
 	int			len;

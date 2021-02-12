@@ -6,39 +6,38 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 17:43:11 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/10 12:13:30 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/13 01:51:08 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-#include "../Libft/Libft.h"
+#include "ft_printf.h"
+#include "../libft/libft.h"
 
-f_list			ft_get_flag(const char *st, f_list f)
+t_list			ft_get_flag(const char *st, t_list f)
 {
-	if (*st == '0')
+	while (*st == '0')
 	{
 		f.flag = 0;
 		st++;
 	}
-	if (*st == '-')
+	while (*st == '-')
 	{
 		f.flag = 1;
 		st++;
 	}
-	if (*st == '0')
+	while (*st == '0' || *st == '-')
 		st++;
 	if (*st == '*')
 	{
-		///printf("%s\n", "abcdefg");
 		f.f_flag = 1;
 		st++;
 	}
 	return (f);
 }
 
-f_list			ft_init_flag(void)
+t_list			ft_init_flag(void)
 {
-	f_list f;
+	t_list f;
 
 	f.flag = -1;
 	f.f_flag = -1;
