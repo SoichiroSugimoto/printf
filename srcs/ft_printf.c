@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 05:19:05 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/02/13 01:50:57 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/02/22 19:32:35 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_list		get_args(const char **st, va_list ap, t_list f)
 	f = get_struct(*st);
 	if (f.f_flag == 1)
 		f.field = va_arg(ap, int);
-	if (f.field < 0 && f.field != -1)
+	if ((f.field < 0 && f.field != -1) || (f.f_flag == 1 && f.field == -1))
 	{
 		f.flag = 1;
 		f.field *= -1;
