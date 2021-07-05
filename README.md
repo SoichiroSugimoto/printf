@@ -12,13 +12,13 @@ You will mainly learn how to use variadic arguments.
 ####Preparation<br>
 main.c<br>
 `
-#include "srcs/ft_printf.h"
+#include "srcs/ft_printf.h"<br>
 
-int main()
-{
-	ft_printf("%s\n", "apple");
-}
-`
+int main()<br>
+{<br>
+	ft_printf("%s\n", "apple");<br>
+}<br>
+`<br>
 ####Compile<br>
 <br>
 <br>
