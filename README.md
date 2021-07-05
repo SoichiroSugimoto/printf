@@ -21,6 +21,9 @@ int main()
 ```
 
 #### Compile<br>
+1) `$ make` in root dir to generate libftprintf.a<br>
+2) `$ gcc libftprintf.a main.c` to generate a.out<br>
+3) `$ ./a.out` to implement program
 <br>
 <br>
 <br>
