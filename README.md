@@ -8,8 +8,8 @@ You will mainly learn how to use variadic arguments.
 <br>
 <br>
 
-## ●　USAGE<br>
-####Preparation<br>
+## ●　USAGE
+####Preparation
 main.c<br>
 ```
 #include "srcs/ft_printf.h"
@@ -19,8 +19,8 @@ int main()
 	ft_printf("%s\n", "apple");
 }
 ```
-<>br
-####Compile<br>
+
+####Compile
 <br>
 <br>
 <br>
