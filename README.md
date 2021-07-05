@@ -10,7 +10,7 @@ You will mainly learn how to use variadic arguments.
 
 ## ●　USAGE
 #### Preparation<br>
-main.c<br>
+・main.c<br>
 ```
 #include "srcs/ft_printf.h"
 
