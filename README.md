@@ -9,7 +9,7 @@ You will mainly learn how to use variadic arguments.
 <br>
 
 ## ●　USAGE
-####Preparation
+#### Preparation<br>
 main.c<br>
 ```
 #include "srcs/ft_printf.h"
@@ -20,7 +20,7 @@ int main()
 }
 ```
 
-####Compile
+#### Compile<br>
 <br>
 <br>
 <br>
